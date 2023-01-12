@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/widget/bottom_bar.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  _MyAppState createState() => _MyAppState();
 }
 
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-
+    TabController controller;
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(),
-        body: ShopItem(),
-      )
+      title: 'youngFlix',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.black,
+        accentColor: Colors.white,
+      ),
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              Container(child: Center(child:Text('home') ,),),
+              Container(child: Center(child:Text('search') ,),),
+              Container(child: Center(child:Text('save') ,),),
+              Container(child: Center(child:Text('more') ,),),
+            ],
+          ),
+          bottomNavigationBar: Bottom(),
+        ),
+      ),
     );
   }
-
 }
-
-class ShopItem extends StatelessWidget {
-  const ShopItem({Key? key}) : super(key: key);
-
-  @override
-  build(context) {
-    return SizedBox(
-      child: Text('안녕'),
-    );
-  }
-}
-
-
