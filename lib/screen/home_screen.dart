@@ -10,8 +10,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
     Movie.fromMap(
         {
-          'title': '독일 뮌헨',
-          'keyword': '디지니',
+          'title': 'Neuschwanstein Castle',
+          'keyword': 'disney castle',
           'poster': 'germany.jpg',
           'like': false
         }
