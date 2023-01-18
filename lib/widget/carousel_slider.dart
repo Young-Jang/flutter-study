@@ -56,6 +56,7 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
                   child: Column(
