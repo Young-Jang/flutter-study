@@ -63,7 +63,7 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: <Widget>[
                       likes[_currentPage]
                           ? IconButton(
-                              onPressed: () {}, icon: Icon(Icons.check))
+                          onPressed: () {}, icon: Icon(Icons.check))
                           : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
                       Text(
                         '내가 찜한 콘텐츠',
@@ -108,9 +108,29 @@ class _CarouselImageState extends State<CarouselImage> {
               ],
             ),
           ),
-
+          Container(child: Row(mainAxisAlignment:  MainAxisAlignment.center,
+            children: makeIndicator(likes, _currentPage),),)
         ],
       ),
     );
   }
 }
+
+
+List<Widget> makeIndicator(List list, int _currentPage) {
+  List<Widget> results = [];
+  for (var i = 0; i < list.length; i++) {
+    results.add(Container(
+      width: 8,
+      height: 8,
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+      decoration: BoxDecoration(shape: BoxShape.circle,
+          color: _currentPage == i
+              ? Color.fromRGBO(255, 255, 255, 0.9)
+              : Color.fromRGBO(255, 255, 255, 0.4)
+      ),
+    ),);
+  }
+  return results;
+}
+

@@ -15,7 +15,28 @@ class _HomeScreenState extends State<HomeScreen> {
           'poster': 'germany.jpg',
           'like': false
         }
-    )
+    ),Movie.fromMap(
+        {
+          'title': 'Neuschwanstein Castle',
+          'keyword': 'disney castle',
+          'poster': 'germany.jpg',
+          'like': false
+        }
+    ),Movie.fromMap(
+        {
+          'title': 'Neuschwanstein Castle',
+          'keyword': 'disney castle',
+          'poster': 'germany.jpg',
+          'like': false
+        }
+    ),Movie.fromMap(
+        {
+          'title': 'Neuschwanstein Castle',
+          'keyword': 'disney castle',
+          'poster': 'germany.jpg',
+          'like': false
+        }
+    ),
   ];
 
   @override
