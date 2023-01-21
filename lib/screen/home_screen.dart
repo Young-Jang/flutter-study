@@ -17,9 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
         }
     ),Movie.fromMap(
         {
-          'title': 'Neuschwanstein Castle',
-          'keyword': 'disney castle',
-          'poster': 'germany.jpg',
+          'title': 'london eye',
+          'keyword': 'london eye night',
+          'poster': 'London.jpg',
           'like': false
         }
     ),Movie.fromMap(
