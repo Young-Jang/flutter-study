@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_study/screen/detail_screen.dart';
 import '../model/model_movie.dart';
 
 class CarouselImage extends StatefulWidget {
@@ -63,7 +64,7 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: <Widget>[
                       likes[_currentPage]
                           ? IconButton(
-                          onPressed: () {}, icon: Icon(Icons.check))
+                              onPressed: () {}, icon: Icon(Icons.check))
                           : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
                       Text(
                         '내가 찜한 콘텐츠',
@@ -97,7 +98,17 @@ class _CarouselImageState extends State<CarouselImage> {
                   padding: EdgeInsets.only(right: 10),
                   child: Column(
                     children: <Widget>[
-                      IconButton(onPressed: () {}, icon: Icon(Icons.info)),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute<Null>(
+                                fullscreenDialog: true,
+                                builder: (BuildContext context) {
+                                  return DetailScreen(
+                                    movie: movies[_currentPage],
+                                  );
+                                }));
+                          },
+                          icon: Icon(Icons.info)),
                       Text(
                         '정보',
                         style: TextStyle(fontSize: 12),
@@ -108,29 +119,33 @@ class _CarouselImageState extends State<CarouselImage> {
               ],
             ),
           ),
-          Container(child: Row(mainAxisAlignment:  MainAxisAlignment.center,
-            children: makeIndicator(likes, _currentPage),),)
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: makeIndicator(likes, _currentPage),
+            ),
+          )
         ],
       ),
     );
   }
 }
 
-
 List<Widget> makeIndicator(List list, int _currentPage) {
   List<Widget> results = [];
   for (var i = 0; i < list.length; i++) {
-    results.add(Container(
-      width: 8,
-      height: 8,
-      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-      decoration: BoxDecoration(shape: BoxShape.circle,
-          color: _currentPage == i
-              ? Color.fromRGBO(255, 255, 255, 0.9)
-              : Color.fromRGBO(255, 255, 255, 0.4)
+    results.add(
+      Container(
+        width: 8,
+        height: 8,
+        margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: _currentPage == i
+                ? Color.fromRGBO(255, 255, 255, 0.9)
+                : Color.fromRGBO(255, 255, 255, 0.4)),
       ),
-    ),);
+    );
   }
   return results;
 }
-
