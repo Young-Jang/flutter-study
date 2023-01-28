@@ -26,16 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
         }
     ),Movie.fromMap(
         {
-          'title': 'Neuschwanstein Castle',
-          'keyword': 'disney castle',
-          'poster': 'germany.jpg',
+          'title': 'Jungfrau',
+          'keyword': 'Swiss Jungfrau top',
+          'poster': 'Swiss.jpg',
           'like': false
         }
     ),Movie.fromMap(
         {
-          'title': 'Neuschwanstein Castle',
-          'keyword': 'disney castle',
-          'poster': 'germany.jpg',
+          'title': 'CeskyKrumlov castle',
+          'keyword': 'cesko',
+          'poster': 'CeskyKrumlov.jpg',
           'like': false
         }
     ),
