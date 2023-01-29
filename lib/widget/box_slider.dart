@@ -15,7 +15,7 @@ class BoxSlider extends StatelessWidget{
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('지금 뜨는 콘텐츠'),
+          Text('자주 조회한 사진'),
           Container(
             height: 120,
             child: ListView(
