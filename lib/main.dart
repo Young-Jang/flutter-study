@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/dto/get_lucky_number.dart';
 import 'package:flutter_study/screen/home_screen.dart';
 import 'package:flutter_study/screen/more_screen.dart';
 import 'package:flutter_study/widget/bottom_bar.dart';
+import 'package:flutter_study/rest/rest_service.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,13 +31,26 @@ class _MyAppState extends State<MyApp> {
               HomeScreen(),
               Container(
                 child: Center(
-                  child: Text('search'),
+                  child: Text('임시'),
                 ),
               ),
               Container(
-                child: Center(
-                  child: Text('save'),
-                ),
+                child:  Center(
+                child: FutureBuilder<GetLuckyNumber>(
+                future: getLuckyNumber(),
+                builder: (context, snapshot) {
+                switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                case ConnectionState.waiting:
+                return CircularProgressIndicator();
+                default:
+                if (snapshot.hasError)
+                return new Text('Error: ${snapshot.error}');
+                else {
+                  String? l = snapshot.data?.luckyNumber;
+                  return Text(l.toString());
+                }
+                }}))
               ),
               MoreScreen(),
             ],
