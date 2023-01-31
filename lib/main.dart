@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
               Container(
                 child:  Center(
                 child: FutureBuilder<GetLuckyNumber>(
-                future: getLuckyNumber(),
+                future: getLuckyNumber("5"),
                 builder: (context, snapshot) {
                 switch (snapshot.connectionState) {
                 case ConnectionState.none:

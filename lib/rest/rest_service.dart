@@ -5,8 +5,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:logger/logger.dart';
 
-Future<GetLuckyNumber> getLuckyNumber() async {
-  final response = await http.get(Uri.parse('http://localhost:8080/lotto/get-lucky-number?count=1'));
+Future<GetLuckyNumber> getLuckyNumber(String cnt) async {
+  final response = await http.get(Uri.parse('http://localhost:8080/lotto/get-lucky-number?count='+cnt));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
